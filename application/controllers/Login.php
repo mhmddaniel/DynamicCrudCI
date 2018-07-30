@@ -42,23 +42,10 @@ class Login extends CI_Controller {
             );
 
             $this->session->set_userdata($userdata);
-            if($this->session->userdata('category')=="admin")
-            {
-                redirect('Dashboard');
-            }
-            else
-            {
-                redirect('Form');
-            }
-
+            redirect('Dashboard');
         }else{
             redirect('Login');
         }
-    }
-
-    public function logout()
-    {
-        $this->session->destroy();
     }
 
 
