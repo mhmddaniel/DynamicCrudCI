@@ -32,7 +32,7 @@ class Dashboard extends CI_Controller {
         $header_data['title'] = "Dashboard";
         $this->load->view('header',$header_data);
         $this->load->view('sidenav');
-        $this->load->view('dashboard');
+        $this->load->view('dashboard/dashboard');
         $this->load->view('footer');
     }
 }

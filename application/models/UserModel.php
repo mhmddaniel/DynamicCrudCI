@@ -25,6 +25,6 @@ class UserModel extends CI_Model{
 
     function login($primary_key,$secondary_key)
     {
-        return $this->db->where($this->primary_key,$primary_key)->where($this->secondary_key,$secondary_key)->get($this->table)->result();
+        return $this->db->where($this->primary_key,$primary_key)->where($this->secondary_key,$secondary_key)->get($this->table)->row();
     }
 }

@@ -35,17 +35,20 @@ class Login extends CI_Controller {
         $password=$this->input->post('password');
         $user=$this->UserModel->login($username,md5($password));
         if(!empty($user)){
-            $userdata = array(
-                'username'   => $user['username'],
-                'category'   => $user['category'],
-                'logged_in' => TRUE
-            );
+            $userdata["userdata"] = $this->UserModel->login($username,md5($password));
+            $userdata["logged_in"] = TRUE;
 
             $this->session->set_userdata($userdata);
             redirect('Dashboard');
         }else{
             redirect('Login');
         }
+    }
+
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect("Login");
     }
 
 

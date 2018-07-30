@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Submission extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -26,7 +26,7 @@ class User extends CI_Controller {
             redirect(base_url('Login'));
         };
 
-        $this->load->model('UserModel');
+        $this->load->model('FormModel');
     }
 
     public function index()
@@ -36,7 +36,7 @@ class User extends CI_Controller {
         $content_data['user'] = $this->UserModel->get();
         $this->load->view('header',$header_data);
         $this->load->view('sidenav');
-        $this->load->view('user/view',$content_data);
+        $this->load->view('submission/view',$content_data);
         $this->load->view('footer');
     }
 
@@ -46,7 +46,7 @@ class User extends CI_Controller {
         $header_data['title'] = "User";
         $this->load->view('header',$header_data);
         $this->load->view('sidenav');
-        $this->load->view('user/add',$content_data);
+        $this->load->view('submission/add',$content_data);
         $this->load->view('footer');
     }
 
