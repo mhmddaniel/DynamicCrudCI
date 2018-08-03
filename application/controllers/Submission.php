@@ -27,13 +27,15 @@ class Submission extends CI_Controller {
         };
 
         $this->load->model('FormModel');
+        $this->load->model('SubformModel');
+        $this->load->model('InputModel');
+        $this->load->model('VariableModel');
     }
-
     public function index()
     {
 
-        $header_data['title'] = "User";
-        $content_data['user'] = $this->UserModel->get();
+        $header_data['title'] = "Pengajuan";
+        $content_data['form'] = $this->FormModel->get();
         $this->load->view('header',$header_data);
         $this->load->view('sidenav');
         $this->load->view('submission/view',$content_data);
@@ -42,23 +44,156 @@ class Submission extends CI_Controller {
 
     public function Create()
     {
-        $content_data['title'] = "User";
-        $header_data['title'] = "User";
+        $content_data['title'] = "Form";
+        $header_data['title'] = "Form";
         $this->load->view('header',$header_data);
         $this->load->view('sidenav');
-        $this->load->view('submission/add',$content_data);
+        $this->load->view('form/add',$content_data);
         $this->load->view('footer');
     }
 
     public function Add()
     {
-        $data['username'] = $this->input->post('username');//str_replace(' ', '_',strtolower ($this->input->post('form_name')));
-        $data['password'] = md5($this->input->post('password'));
-        $data['useralias'] = $this->input->post('useralias');
-        $data['category'] = $this->input->post('category');
+        $data['form_name'] = $this->input->post('form_name');//str_replace(' ', '_',strtolower ($this->input->post('form_name')));
+        $data['subform_count'] = $this->input->post('subform_count');
 
-        $this->UserModel->insert($data);
+        $this->FormModel->insert($data);
 
-        redirect("user");
+        redirect("submission/submitform");
+    }
+
+    public function Submitform($form_id)
+    {
+        $content_data['title'] = "Pengajuan";
+        $content_data['primary_key'] = $form_id;
+        $content_data['form_name'] = $this->FormModel->get_from_primary_key("form_name",$content_data['primary_key']);
+        $content_data['subform_count'] = $this->FormModel->get_from_primary_key("subform_count",$content_data['primary_key']);
+        $content_data['subform'] = $this->SubformModel->get_all_from_foreign_key($form_id);
+
+        for($i=0;$i<$content_data['subform_count'];$i++)
+        {
+            $content_data['variable'][$i]= $this->VariableModel->get_all_from_foreign_key($content_data['subform'][$i]->subform_id);
+        }
+
+
+
+        $content_data['input_type'] = $this->InputModel->get();
+        $this->load->view('header',$content_data);
+        $this->load->view('sidenav');
+        $this->load->view('submission/submitform',$content_data);
+        $this->load->view('footer');
+    }
+
+    public function Subformadd($primary_key)
+    {
+        $content_data['title'] = "Subform";
+        $content_data['primary_key'] = $primary_key;
+        $content_data['form_name'] = $this->FormModel->get_from_primary_key("form_name",$content_data['primary_key']);
+        $content_data['subform_count'] = 1;
+        $this->load->view('header');
+        $this->load->view('sidenav');
+        $this->load->view('form/addsubform',$content_data);
+        $this->load->view('footer');
+    }
+
+    public function Subformedit($primary_key)
+    {
+        $content_data['title'] = "Subform";
+        $content_data['primary_key'] = $primary_key;
+        $content_data['form_name'] = $this->FormModel->get_from_primary_key("form_name",$content_data['primary_key']);
+        $content_data['subform_count'] = $this->FormModel->get_from_primary_key("subform_count",$content_data['primary_key']);
+        $this->load->view('header');
+        $this->load->view('sidenav');
+        $this->load->view('form/addsubform',$content_data);
+        $this->load->view('footer');
+    }
+
+    public function Viewsubform($form_id)
+    {
+        $data['form_name'] = $this->input->post('form_name');
+        $header_data['title'] = "Sub Form";
+        $content_data['form'] = $this->SubformModel->get_all_from_foreign_key($form_id);
+        $this->load->view('header',$header_data);
+        $this->load->view('sidenav');
+        $this->load->view('form/viewsubform',$content_data);
+        $this->load->view('footer');
+    }
+
+    public function Addsubform()
+    {
+        $form_id= $this->input->post('form_id');
+        $names = $this->input->post('subform_name');
+
+        $counts = $this->input->post('variable_count');
+
+        for($i=0;$i<count($names);$i++)
+        {
+            $data['form_id'] = $form_id;
+            $data['subform_name'] = $names[$i];//str_replace(' ', '_',strtolower ($this->input->post('form_name')));
+            $data['variable_count'] = $counts[$i];
+
+            $this->SubformModel->insert($data);
+        }
+
+        redirect("form");
+    }
+
+    public function Variable($subform_id)
+    {
+        $header_data['title'] = "Inputan";
+        $content_data['title'] = "Inputan";
+        $content_data['subform_id'] = $subform_id;
+        $content_data['subform'] = $this->SubformModel->get_all_from_primary_key($subform_id);
+        $content_data['input_type'] = $this->InputModel->get();
+        $this->load->view('header',$header_data);
+        $this->load->view('sidenav');
+        $this->load->view('form/variable',$content_data);
+        $this->load->view('footer');
+    }
+
+    public function ViewVariable($subform_id)
+    {
+        $header_data['title'] = "Inputan";
+        $content_data['title'] = "Inputan";
+        $content_data['subform_id'] = $subform_id;
+        $content_data['subform'] = $this->SubformModel->get_all_from_primary_key($subform_id);
+        $content_data['input'] = $this->VariableModel->get_all_from_foreign_key($subform_id);
+        $content_data['input_type'] = $this->InputModel->get();
+        $this->load->view('header',$header_data);
+        $this->load->view('sidenav');
+        $this->load->view('form/viewvariable',$content_data);
+        $this->load->view('footer');
+    }
+
+    public function EditVariable($subform_id)
+    {
+        $header_data['title'] = "Inputan";
+        $content_data['title'] = "Inputan";
+        $content_data['subform_id'] = $subform_id;
+        $content_data['subform'] = $this->SubformModel->get_all_from_primary_key($subform_id);
+        $content_data['input_type'] = $this->InputModel->get();
+        $this->load->view('header',$header_data);
+        $this->load->view('sidenav');
+        $this->load->view('form/variable',$content_data);
+        $this->load->view('footer');
+    }
+
+
+    public function AddVariable()
+    {
+        $subform_id= $this->input->post('subform_id');
+        $names = $this->input->post('input_name');
+        $types = $this->input->post('input_type');
+
+        for($i=0;$i<count($names);$i++)
+        {
+            $data['subform_id'] = $subform_id;
+            $data['variable_name'] = $names[$i];//str_replace(' ', '_',strtolower ($this->input->post('form_name')));
+            $data['variable_type'] = $types[$i];
+
+            $this->VariableModel->insert($data);
+        }
+
+        redirect("form/Viewvariable/".$subform_id);
     }
 }

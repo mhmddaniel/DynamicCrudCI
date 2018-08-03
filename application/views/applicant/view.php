@@ -23,7 +23,7 @@
                         <h3 class="box-title">Daftar <?php echo $title; ?></h3>
                         <div class="box-tools pull-right">
                             <div class="has-feedback">
-                                <input type="text" class="form-control input-sm" placeholder="Cari Form">
+                                <input type="text" class="form-control input-sm" placeholder="Cari Pemohon">
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
                         </div>
@@ -31,26 +31,35 @@
                     <!-- /.box-header -->
                     <!-- form start -->
                         <div class="box-body">
+
+                            <div class="mailbox-controls pull-right">
+                                <a href="<?php echo base_url('Applicant/Create'); ?>"><button type="submit" class="btn btn-primary">Tambah <?php echo $title; ?> <i class="fa fa-plus"></i></button></a>
+                            </div>
                             <div class="form-group">
-                                <table class="table table-bordered">
+                                <table id="datatable" name="datatable" class="table table-bordered">
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Form</th>
-                                        <th>Jumlah Pengajuan</th>
-                                        <th>Jumlah Diterima</th>
+                                        <th>Nama Pemohon</th>
+                                        <th>NIK</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Tempat Lahir</th>
+                                        <th>Tanggal Lahir</th>
+                                        <th>Kewarganegaraan</th>
                                         <th>Aksi</th>
                                     </tr>
                                     <?php
                                     $i=1;
-                                    foreach ($form as $value) { ?>
+                                    foreach ($user as $value) { ?>
                                     <tr>
                                         <td><?php echo $i;?></td>
-                                        <td><?php echo $value->form_name;?></td>
-                                        <td>#</td>
-                                        <td>#</td>
-                                        <td>
-                                            <a href="#" class="label bg-light-blue"> Lihat <i class="fa fa-list-ol"></i></a>
-                                            <a href="<?php echo base_url("Submission/Submitform/".$value->form_id) ?>" class="label bg-aqua"> Tambah <i class="fa fa-edit"></i></a>
+                                        <td><?php echo $value->nama_pemohon?></td>
+                                        <td><?php echo $value->nik?></td>
+                                        <td><?php echo $value->jenis_kelamin;?>
+                                        <td><?php echo $value->tempat_lahir;?>
+                                        <td><?php echo $value->tanggal_lahir;?>
+                                        <td><?php echo $value->kewarganegaraan;?></td>
+                                        <td> <a href="#" class="label bg-aqua"> Edit <i class="fa fa-edit"></i></a>
+                                            <a href="#" class="label bg-red"> Hapus <i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                     <?php

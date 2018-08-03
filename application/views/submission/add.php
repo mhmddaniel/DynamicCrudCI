@@ -19,31 +19,19 @@
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Tambahkan User</h3>
+                        <h3 class="box-title">Tambahkan Form</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <?php echo form_open(base_url("User/Add")); ?>
+                    <?php echo form_open(base_url("Form/Add")); ?>
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="username">Nama User</label>
-                                <input type="text" class="form-control" id="useralias" name="useralias" placeholder="Masukkan nama user" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username" required>
+                                <label for="form_name">Nama Form</label>
+                                <input type="text" class="form-control" id="form_name" name="form_name" placeholder="Masukkan nama form" required>
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan passoword" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="category">Kategori User</label>
-                                <select id="category" name="category" class="form-control">
-                                    <option value="admin">Admin</option>
-                                    <option value="operator">Operator</option>
-                                </select>
+                                <label for="subform_count">Jumlah Subform</label>
+                                <input type="number" class="form-control" id="subform_count" name="subform_count" placeholder="Masukkan jumlah subform" required>
                             </div>
                         </div>
                         <!-- /.box-body -->
