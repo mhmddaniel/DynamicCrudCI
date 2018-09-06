@@ -23,6 +23,22 @@
 </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url() ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- DataTables -->
+<script src="<?php echo base_url('assets'); ?>/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/bower_components/responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/bower_components/responsive/js/responsive.bootstrap.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/bower_components/scroller/js/dataTables.scroller.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/bower_components/select/js/dataTables.select.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+
 <!-- Morris.js charts -->
 <script src="<?php echo base_url() ?>assets/bower_components/raphael/raphael.min.js"></script>
 <script src="<?php echo base_url() ?>assets/bower_components/morris.js/morris.min.js"></script>
@@ -55,14 +71,41 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url() ?>assets/dist/js/demo.js"></script>
 
-<!-- DataTables -->
-<script src="<?php echo base_url() ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url() ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-
 <script>
     $(function () {
         //Initialize Select2 Elements
-        $('.select2').select2()
+        $('.select2').select2({
+            width: '100%'
+        })
+        $(function () {
+            var applicanttable = $('#applicanttable').DataTable({
+                'paging'      : true,
+                'lengthChange': true,
+                'searching'   : true,
+                'info'        : true,
+                'autoWidth'   : true,
+                'aaSorting'   : [],
+                'ordering'    : true,
+                'dom'         : 'Bfrtip',
+                'buttons'     : [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+
+            var companytable = $('#companytable').DataTable({
+                'paging'      : true,
+                'lengthChange': true,
+                'searching'   : true,
+                'info'        : true,
+                'autoWidth'   : true,
+                'aaSorting'   : [],
+                'ordering'    : true,
+                'dom'         : 'Bfrtip',
+                'buttons'     : [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        })
     })
 </script>
 
@@ -74,6 +117,92 @@
     var city = document.getElementById('kota');
     var district = document.getElementById('kecamatan');
     var area = document.getElementById('desa');
+
+    function loadTable(fieldid)
+    {
+        var field = document.getElementById(fieldid);
+        var value = field.options[field.selectedIndex].value;
+
+        $.ajax ({
+            type: 'POST',
+            url: base_url+'Applicant/Filter',
+            data: { 'fieldid': fieldid, 'value' : value },
+            success : function(result) {
+                var opts = $.parseJSON(result);
+
+                // Use jQuery's each to iterate over the opts value
+
+                $('#applicanttable tr').not(':first').remove();
+                var html = '';
+                var no =1;
+                $.each(opts, function(i, d) {
+                    html += '<tr><td>' + no + '</td><td>' + d.nama_pemohon + '</td><td>' + d.nik + '</td><td>' + d.jenis_kelamin + '</td><td>' + d.tempat_lahir + '</td><td>' + d.tanggal_lahir + '</td><td>' + d.kewarganegaraan + '</td><td>' + '<a href="#" class="label bg-aqua"> Edit <i class="fa fa-edit"></i></a>\n' +
+                        '                                            <a href="#" class="label bg-red"> Hapus <i class="fa fa-trash"></i></a>' + '</td></tr>';
+
+                    no+=1;
+                });
+                $('#applicanttable').append(html);
+
+            }
+        });
+
+
+    }
+
+    function loadUsia(fieldid)
+    {
+        var field = document.getElementById(fieldid);
+        var value = field.options[field.selectedIndex].value;
+
+        $.ajax ({
+            type: 'POST',
+            url: base_url+'Applicant/Age',
+            data: { 'fieldid': fieldid, 'value' : value },
+            success : function(result) {
+
+                var opts = $.parseJSON(result);
+
+                // Use jQuery's each to iterate over the opts value
+
+                $('#applicanttable tr').not(':first').remove();
+                var html = '';
+                var no =1;
+                $.each(opts, function(i, d) {
+                    html += '<tr><td>' + no + '</td><td>' + d.nama_pemohon + '</td><td>' + d.nik + '</td><td>' + d.jenis_kelamin + '</td><td>' + d.tempat_lahir + '</td><td>' + d.tanggal_lahir + '</td><td>' + d.kewarganegaraan + '</td><td>' + '<a href="#" class="label bg-aqua"> Edit <i class="fa fa-edit"></i></a>\n' +
+                        '                                            <a href="#" class="label bg-red"> Hapus <i class="fa fa-trash"></i></a>' + '</td></tr>';
+
+                    no+=1;
+                });;
+                $('#applicanttable').append(html);
+
+            }
+        });
+
+
+    }
+
+    function loadProvince() {
+        city.disabled = false;
+        city.innerHTML="";
+        var value = province.options[province.selectedIndex].value;
+        $.ajax ({
+            type: 'POST',
+            url: base_url+'Region/GetAreas/'+value+"/5",
+            data: { 'value': value },
+            success : function(result) {
+                var opts = $.parseJSON(result);
+                // Use jQuery's each to iterate over the opts value
+                $.each(opts, function(i, d) {
+                    var opt = document.createElement("option");
+                    opt.value= d.kode;
+                    opt.innerHTML = d.nama; // whatever property it has
+
+                    // then append it to the select element
+                    city.appendChild(opt);
+                });
+            }
+        });
+    }
 
     function loadCity() {
         city.disabled = false;
@@ -96,7 +225,6 @@
                 });
             }
         });
-
     }
 
     function loadDistrict() {
@@ -113,9 +241,7 @@
                 $.each(opts, function(i, d) {
                     var opt = document.createElement("option");
                     opt.value= d.kode;
-                    opt.innerHTML = d.nama; // whatever property it has
-
-                    // then append it to the select element
+                    opt.innerHTML = d.nama;
                     district.appendChild(opt);
                 });
             }
@@ -137,9 +263,7 @@
                 $.each(opts, function(i, d) {
                     var opt = document.createElement("option");
                     opt.value= d.kode;
-                    opt.innerHTML = d.nama; // whatever property it has
-
-                    // then append it to the select element
+                    opt.innerHTML = d.nama;
                     area.appendChild(opt);
                 });
             }
@@ -149,8 +273,6 @@
 <script>
     var searchNIK;
     $(document).ready(function () {
-
-        $('#datatable').DataTable()
 
         var nik = [];
         <?php

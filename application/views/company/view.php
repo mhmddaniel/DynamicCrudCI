@@ -22,30 +22,28 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">Daftar <?php echo $title; ?></h3>
                         <div class="box-tools pull-right">
-                            <div class="has-feedback">
-                                <input type="text" class="form-control input-sm" placeholder="Cari Pemohon">
-                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                            </div>
+                            <a href="<?php echo base_url('Company/Create'); ?>"><button type="submit" class="btn btn-primary">Tambah <?php echo $title; ?> <i class="fa fa-plus"></i></button></a>
                         </div>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
                         <div class="box-body">
-
-                            <div class="mailbox-controls pull-right">
-                                <a href="<?php echo base_url('Company/Create'); ?>"><button type="submit" class="btn btn-primary">Tambah <?php echo $title; ?> <i class="fa fa-plus"></i></button></a>
-                            </div>
                             <div class="form-group">
-                                <table class="table table-bordered">
+                                <table id="companytable" class="table table-bordered">
+                                    <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Usaha</th>
                                         <th>Jenis Usaha</th>
+                                        <th>Industri Pariwisata</th>
                                         <th>Status Usaha</th>
-                                        <th>Kecamatan</th>
-                                        <th>Kelurahan</th>
+                                        <th>Kegiatan Utama</th>
+                                        <th>Tanggal Akte</th>
+                                        <th>Terakhir Diubah</th>
                                         <th>Aksi</th>
                                     </tr>
+                                    </thead>
+                                    <tbody>
                                     <?php
                                     $i=1;
                                     foreach ($user as $value) { ?>
@@ -53,16 +51,47 @@
                                         <td><?php echo $i;?></td>
                                         <td><?php echo $value->nama_perusahaan;?>
                                         <td><?php echo $value->jenis_perusahaan;?></td>
+                                        <td><?php echo $value->industri_pariwisata;?></td>
                                         <td><?php echo $value->status_perusahaan;?></td>
-                                        <td><?php echo $value->kecamatan;?></td>
-                                        <td><?php echo $value->desa;?></td>
-                                        <td> <a href="#" class="label bg-aqua"> Edit <i class="fa fa-edit"></i></a>
-                                            <a href="#" class="label bg-red"> Hapus <i class="fa fa-trash"></i></a>
+                                        <td><?php echo $value->kegiatan_utama;?></td>
+                                        <td><?php echo $value->tanggal_akte;?></td>
+                                        <td><?php echo $value->last_update;?></td>
+                                        <td>
+                                            <?php echo form_open(base_url("#")); ?>
+                                            <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $value->id?>">
+                                            <button type="submit" class="btn btn-block btn-success btn-xs"><i class="fa fa-history"></i> Riwayat</button>
+                                            </form>
+                                            <?php echo form_open(base_url("Company/Update")); ?>
+                                            <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $value->id?>">
+                                            <button type="submit" class="btn btn-block btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</button>
+                                            </form>
+                                            <?php if ($this->session->userdata('userdata')->category == "admin") { ?>
+                                                <?php echo form_open(base_url("Company/Delete")); ?>
+                                                <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $value->nik?>">
+                                                <button type="submit" class="btn btn-block btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
+                                                </form>
+                                                <?php
+                                            }
+                                            ?>
                                         </td>
                                     </tr>
                                     <?php
                                     $i+=1;
                                     } ?>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Usaha</th>
+                                        <th>Jenis Usaha</th>
+                                        <th>Industri Pariwisata</th>
+                                        <th>Status Usaha</th>
+                                        <th>Kegiatan Utama</th>
+                                        <th>Tanggal Akte</th>
+                                        <th>Terakhir Diubah</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                    </tfoot>
                                 </table>
                             </div>
                         </div>
@@ -75,4 +104,4 @@
         <!-- /.row -->
     </section>
     <!-- /.content -->
-</div>s
+</div>

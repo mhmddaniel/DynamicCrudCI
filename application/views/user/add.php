@@ -43,6 +43,9 @@
                                 <select id="category" name="category" class="form-control">
                                     <option value="admin">Admin</option>
                                     <option value="operator">Operator</option>
+                                    <option value="kepala_bidang">Kepala Bidang</option>
+                                    <option value="kepala_seksi">Kepala Seksi</option>
+                                    <option value="kepala_dinas">Kepala Dinas</option>
                                 </select>
                             </div>
                         </div>

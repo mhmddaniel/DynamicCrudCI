@@ -1,14 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Aug 03, 2018 at 04:52 AM
--- Server version: 5.6.38
--- PHP Version: 7.2.1
+-- Host: 127.0.0.1
+-- Generation Time: Aug 09, 2018 at 05:25 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `pariwisata`
@@ -43,10 +51,19 @@ CREATE TABLE `form` (
 --
 
 INSERT INTO `form` (`form_id`, `form_name`, `subform_count`) VALUES
-(8, 'Usaha Penyelengaraan Hiburan dan Rekreasi', 9),
-(9, 'Usaha Jasa Pramuwisata', 6),
-(10, 'Usaha Kawasan Pariwisata', 6),
-(11, 'Usaha Penyediaan Akomodasi', 7);
+(1, 'Usaha Jasa Pramuwisata', 6),
+(2, 'Usaha Kawasan Pariwisata', 6),
+(3, 'Usaha Penyediaan Akomodasi', 7),
+(4, 'Usaha Daya Tarik Wisata', 7),
+(5, 'Usaha Jasa Informasi Wisata', 5),
+(6, 'Usaha Penyelengaraan Hiburan dan Rekreasi', 9),
+(7, 'Usaha Penyelengaraan Jasa Perjalanan Pariwisata', 7),
+(8, 'Usaha Jasa Transprotasi Wisata', 7),
+(9, 'Usaha Pertemuan, Perjalanan Intensif, Konferensi, dan Pameran', 7),
+(10, 'Usaha Penyedian Jasa Makanan dan Minuman', 5),
+(11, 'Usaha Jasa Konsultasi Wisata', 4),
+(12, 'Usaha Wisata Tirta', 8),
+(13, 'Usaha SPA', 5);
 
 -- --------------------------------------------------------
 
@@ -111,6 +128,9 @@ CREATE TABLE `perusahaan` (
   `id_perusahaan` int(11) NOT NULL,
   `nik_pemohon` varchar(64) NOT NULL,
   `nama_perusahaan` varchar(64) NOT NULL,
+  `merek_dagang` varchar(128) NOT NULL,
+  `industri_pariwisata` varchar(128) NOT NULL,
+  `sub_pariwisata` varchar(128) NOT NULL,
   `jenis_perusahaan` varchar(64) NOT NULL,
   `status_perusahaan` varchar(64) NOT NULL,
   `kegiatan_utama` varchar(64) NOT NULL,
@@ -130,9 +150,8 @@ CREATE TABLE `perusahaan` (
 -- Dumping data for table `perusahaan`
 --
 
-INSERT INTO `perusahaan` (`id_perusahaan`, `nik_pemohon`, `nama_perusahaan`, `jenis_perusahaan`, `status_perusahaan`, `kegiatan_utama`, `alamat_perusahaan`, `kecamatan`, `desa`, `nama_notaris`, `nomor_akte`, `tanggal_akte`, `nama_notaris_perubahan`, `nomor_akte_perubahan`, `tanggal_akte_perubahan`, `npwp`) VALUES
-(4, '', 'Perdana Karya PLG', 'CV', 'Cabang', 'Pengembangan Perangkat Lunak', 'Jalan Musi I, Blok V, No V87, Kelurahan Lorok Pakjo, (Belakang SDN 24 Palembang dan Grand Atyasa)', '16.71.04', '16.71.04.1002', 'Arjun', '12334355', '2017-12-12', '', '', '0000-00-00', '234534646756'),
-(5, 'undefined', 'SrivijayaTech', 'PT', 'Pusat', 'Pembuatan Web', 'Lorong Musi 1, No V87', '16.71.04', '16.71.04.1002', 'Arjun', '12334355', '2016-03-12', 'Juanda', '665689898', '2018-05-12', '1223457687981');
+INSERT INTO `perusahaan` (`id_perusahaan`, `nik_pemohon`, `nama_perusahaan`, `merek_dagang`, `industri_pariwisata`, `sub_pariwisata`, `jenis_perusahaan`, `status_perusahaan`, `kegiatan_utama`, `alamat_perusahaan`, `kecamatan`, `desa`, `nama_notaris`, `nomor_akte`, `tanggal_akte`, `nama_notaris_perubahan`, `nomor_akte_perubahan`, `tanggal_akte_perubahan`, `npwp`) VALUES
+(6, '253466467566767', 'Vantech', 'Vantech cocoid', 'Usaha Penyelengaraan Jasa Perjalanan Pariwisata', '-', 'Perorangan', 'Pusat', 'Konsultan IT', 'Jalan Lintas', '16.71.02', '16.71.02.1005', 'Arjun SH', 'AAS123454HHJY', '2012-12-12', '-', '-', '2012-12-12', '143545898990');
 
 -- --------------------------------------------------------
 
@@ -91572,7 +91591,7 @@ ALTER TABLE `checkbox`
 -- AUTO_INCREMENT for table `form`
 --
 ALTER TABLE `form`
-  MODIFY `form_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `form_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `input_type`
@@ -91584,7 +91603,7 @@ ALTER TABLE `input_type`
 -- AUTO_INCREMENT for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
-  MODIFY `id_perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `subform`
@@ -91597,3 +91616,8 @@ ALTER TABLE `subform`
 --
 ALTER TABLE `variable`
   MODIFY `variable_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

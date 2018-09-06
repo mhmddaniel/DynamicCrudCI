@@ -26,7 +26,7 @@
 
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="nik">NIK</label>
+                                <label for="nik">NIK / Nomor Identitas</label>
                                 <input type="text" class="form-control" id="nik_search" name="nik_search" placeholder="Masukkan NIK" required>
                             </div>
                             <div class="form-group">
@@ -53,6 +53,30 @@
                             <label for="nama_perusahaan">Nama Perusahaan</label>
                             <input type="text" class="form-control" id="nama_perusahaan" name="nama_perusahaan" placeholder="Nama Perusahaan" required>
                         </div>
+
+
+                        <div class="form-group">
+                            <label for="nama_perusahaan">Merek Dagang</label>
+                            <input type="text" class="form-control" id="merek_dagang" name="merek_dagang" placeholder="Merek Dagang" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nama_perusahaan">Industri Pariwisata</label>
+                            <select class="form-control select2" id="industri_pariwisata" name="industri_pariwisata">
+                                <option value="#" selected disabled>Industri Pariwisata</option>
+                                <?php foreach ($industries as $industry) { ?>
+                                    <option value="<?php echo $industry->form_name; ?>"><?php echo $industry->form_name; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="nama_perusahaan">Sub Kategori Industri</label>
+                            <input type="text" class="form-control" id="sub_pariwisata" name="sub_pariwisata" placeholder="Sub Kategori Industri" required>
+                        </div>
+
+
 
                         <div class="form-group">
                             <label for="npwp">Nomor Pokok Wajib Pajak</label>
@@ -115,22 +139,22 @@
                         </div>
                         <div class="form-group">
                             <label for="tanggal_akte">Tanggal Akte</label>
-                            <input type="date" class="form-control" id="tanggal_akte" name="tanggal_akte" placeholder="Tanggal Akte Pendirian" required>
+                            <input type="date" class="form-control" id="tanggal_akte" name="tanggal_akte" value="<?php echo date('Y-m-d', time());?>">
                         </div>
 
                         <label for="nama_notaris_perubahan">Akte Perubahan</label>
 
                         <div class="form-group">
                             <label for="alamat_perusahaan">Nama Notaris</label>
-                            <input type="text" class="form-control" id="nama_notaris_perubahan" name="nama_notaris_perubahan" placeholder="Nama Notaris" required>
+                            <input type="text" class="form-control" id="nama_notaris_perubahan" name="nama_notaris_perubahan" placeholder="Nama Notaris">
                         </div>
                         <div class="form-group">
                             <label for="nomor_akte">Nomor Akte</label>
-                            <input type="text" class="form-control" id="nomor_akte_perubahan" name="nomor_akte_perubahan" placeholder="Nomor Akte Perubahan" required>
+                            <input type="text" class="form-control" id="nomor_akte_perubahan" name="nomor_akte_perubahan" placeholder="Nomor Akte Perubahan">
                         </div>
                         <div class="form-group">
                             <label for="tanggal_akte">Tanggal Akte</label>
-                            <input type="date" class="form-control" id="tanggal_akte_perubahan" name="tanggal_akte_perubahan" placeholder="Tanggal Akte Perubahan" required>
+                            <input type="date" class="form-control" id="tanggal_akte_perubahan" name="tanggal_akte_perubahan" value="<?php echo date('Y-m-d', time());?>">
                         </div>
                     </div>
                     <!-- /.box-body -->

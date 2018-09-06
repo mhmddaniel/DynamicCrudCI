@@ -72,7 +72,8 @@ class Submission extends CI_Controller {
 
         for($i=0;$i<$content_data['subform_count'];$i++)
         {
-            $content_data['variable'][$i]= $this->VariableModel->get_all_from_foreign_key($content_data['subform'][$i]->subform_id);
+            $subform_id = $content_data['subform'][$i]->subform_id;
+            $content_data['variable'][$i]= $this->VariableModel->get_all_from_foreign_key($subform_id);
         }
 
 

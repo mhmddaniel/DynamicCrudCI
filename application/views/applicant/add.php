@@ -26,8 +26,8 @@
                     <?php echo form_open(base_url("Applicant/Add")); ?>
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="nik">Nomor KTP atau Passport</label>
-                                <input type="number" class="form-control" id="nik" name="nik" placeholder="Masukkan NIK" required>
+                                <label for="nik">Nomor Identitas</label>
+                                <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan NIK" required>
                             </div>
 
                             <div class="form-group">
