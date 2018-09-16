@@ -2,116 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e24f7d3b-0a30-4307-b5ff-0fd187bc5b95" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/application/views/applicant/update.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/dataTables.bootstrap4.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/dataTables.bootstrap4.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/dataTables.foundation.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/dataTables.foundation.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/dataTables.jqueryui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/dataTables.jqueryui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/dataTables.semanticui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/dataTables.semanticui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/jquery.dataTables.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/jquery.dataTables.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/images/sort_asc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/images/sort_asc_disabled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/images/sort_both.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/images/sort_desc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/images/sort_desc_disabled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap4.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap4.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/dataTables.foundation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/dataTables.foundation.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/dataTables.jqueryui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/dataTables.jqueryui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/dataTables.semanticui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/dataTables.semanticui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/jquery.dataTables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/jquery.dataTables.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net/js/dataTables.select.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/css/responsive.bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/css/responsive.bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/css/responsive.bootstrap4.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/css/responsive.bootstrap4.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/css/responsive.dataTables.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/css/responsive.dataTables.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/css/responsive.foundation.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/css/responsive.foundation.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/css/responsive.jqueryui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/css/responsive.jqueryui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/css/responsive.semanticui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/css/responsive.semanticui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/js/dataTables.responsive.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/js/dataTables.responsive.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/js/responsive.bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/js/responsive.bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/js/responsive.bootstrap4.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/js/responsive.bootstrap4.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/js/responsive.foundation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/js/responsive.foundation.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/js/responsive.jqueryui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/js/responsive.jqueryui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/js/responsive.semanticui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/responsive/js/responsive.semanticui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/css/scroller.bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/css/scroller.bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/css/scroller.bootstrap4.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/css/scroller.bootstrap4.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/css/scroller.dataTables.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/css/scroller.dataTables.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/css/scroller.foundation.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/css/scroller.foundation.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/css/scroller.jqueryui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/css/scroller.jqueryui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/css/scroller.semanticui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/css/scroller.semanticui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/js/dataTables.scroller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/scroller/js/dataTables.scroller.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/css/select.bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/css/select.bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/css/select.bootstrap4.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/css/select.bootstrap4.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/css/select.dataTables.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/css/select.dataTables.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/css/select.foundation.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/css/select.foundation.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/css/select.jqueryui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/css/select.jqueryui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/css/select.semanticui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/css/select.semanticui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/js/dataTables.select.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bower_components/select/js/dataTables.select.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/perusahaan.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Applicant.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Applicant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Company.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Submission.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Submission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/ApplicantModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ApplicantModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/CompanyModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/CompanyModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/applicant/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/applicant/add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/applicant/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/applicant/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/company/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/company/add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/company/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/company/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/sidenav.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/sidenav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/user/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/user/add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/.bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/.bower.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/License.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/License.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/bower.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net/.bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net/.bower.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net/License.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net/License.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net/bower.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net/js/jquery.dataTables.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net/js/jquery.dataTables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bower_components/datatables.net/js/jquery.dataTables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bower_components/datatables.net/js/jquery.dataTables.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pariwisata.sql" beforeDir="false" afterPath="$PROJECT_DIR$/pariwisata.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +31,7 @@
     <session id="-1882838163">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="31" />
+          <entry key="project.closed" value="33" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
@@ -154,7 +45,7 @@
           <entry key="project.open.time.19" value="2" />
           <entry key="project.open.time.254" value="1" />
           <entry key="project.open.time.41" value="1" />
-          <entry key="project.open.time.42" value="1" />
+          <entry key="project.open.time.42" value="2" />
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.45" value="1" />
           <entry key="project.open.time.46" value="1" />
@@ -168,7 +59,7 @@
           <entry key="project.open.time.70" value="1" />
           <entry key="project.open.time.81" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="33" />
+          <entry key="project.opened" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -205,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Submission.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="68" column="68" lean-forward="true" selection-start-line="68" selection-start-column="68" selection-end-line="68" selection-end-column="68" />
+            <state relative-caret-position="1156">
+              <caret line="68" column="68" selection-start-line="68" selection-start-column="68" selection-end-line="68" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -214,8 +105,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/SubformModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="5" column="35" lean-forward="true" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+            <state relative-caret-position="85">
+              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -224,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/application/models/ApplicantModel.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="263">
-              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
             </state>
           </provider>
         </entry>
@@ -232,7 +123,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/CompanyModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
+            <state relative-caret-position="867">
               <caret line="51" column="48" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
             </state>
           </provider>
@@ -546,18 +437,18 @@
       <workItem from="1535539412456" duration="6000" />
       <workItem from="1535939255856" duration="5983000" />
       <workItem from="1535961293558" duration="14932000" />
-      <workItem from="1536113841357" duration="14679000" />
+      <workItem from="1536113841357" duration="15202000" />
+      <workItem from="1536594655667" duration="598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164887000" />
+    <option name="totallyTimeSpent" value="166008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24583964" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -894,21 +785,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Submission.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="68" column="68" lean-forward="true" selection-start-line="68" selection-start-column="68" selection-end-line="68" selection-end-column="68" />
+        <state relative-caret-position="1156">
+          <caret line="68" column="68" selection-start-line="68" selection-start-column="68" selection-end-line="68" selection-end-column="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/SubformModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="5" column="35" lean-forward="true" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        <state relative-caret-position="85">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/CompanyModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
+        <state relative-caret-position="867">
           <caret line="51" column="48" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
         </state>
       </provider>
@@ -916,7 +807,7 @@
     <entry file="file://$PROJECT_DIR$/application/models/ApplicantModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>

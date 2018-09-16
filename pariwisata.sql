@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2018 at 05:25 PM
+-- Generation Time: Sep 17, 2018 at 12:03 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -43,27 +43,29 @@ CREATE TABLE `checkbox` (
 CREATE TABLE `form` (
   `form_id` int(11) NOT NULL,
   `form_name` varchar(256) NOT NULL,
-  `subform_count` int(11) NOT NULL
+  `subform_count` int(11) NOT NULL,
+  `tahun` int(11) NOT NULL DEFAULT '1',
+  `bulan` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `form`
 --
 
-INSERT INTO `form` (`form_id`, `form_name`, `subform_count`) VALUES
-(1, 'Usaha Jasa Pramuwisata', 6),
-(2, 'Usaha Kawasan Pariwisata', 6),
-(3, 'Usaha Penyediaan Akomodasi', 7),
-(4, 'Usaha Daya Tarik Wisata', 7),
-(5, 'Usaha Jasa Informasi Wisata', 5),
-(6, 'Usaha Penyelengaraan Hiburan dan Rekreasi', 9),
-(7, 'Usaha Penyelengaraan Jasa Perjalanan Pariwisata', 7),
-(8, 'Usaha Jasa Transprotasi Wisata', 7),
-(9, 'Usaha Pertemuan, Perjalanan Intensif, Konferensi, dan Pameran', 7),
-(10, 'Usaha Penyedian Jasa Makanan dan Minuman', 5),
-(11, 'Usaha Jasa Konsultasi Wisata', 4),
-(12, 'Usaha Wisata Tirta', 8),
-(13, 'Usaha SPA', 5);
+INSERT INTO `form` (`form_id`, `form_name`, `subform_count`, `tahun`, `bulan`) VALUES
+(1, 'Usaha Jasa Pramuwisata', 6, 1, 0),
+(2, 'Usaha Kawasan Pariwisata', 6, 1, 0),
+(3, 'Usaha Penyediaan Akomodasi', 7, 1, 0),
+(4, 'Usaha Daya Tarik Wisata', 7, 1, 0),
+(5, 'Usaha Jasa Informasi Wisata', 5, 1, 0),
+(6, 'Usaha Penyelengaraan Hiburan dan Rekreasi', 9, 1, 0),
+(7, 'Usaha Penyelengaraan Jasa Perjalanan Pariwisata', 7, 1, 0),
+(8, 'Usaha Jasa Transprotasi Wisata', 7, 1, 0),
+(9, 'Usaha Pertemuan, Perjalanan Intensif, Konferensi, dan Pameran', 7, 1, 0),
+(10, 'Usaha Penyedian Jasa Makanan dan Minuman', 5, 1, 0),
+(11, 'Usaha Jasa Konsultasi Wisata', 4, 1, 0),
+(12, 'Usaha Wisata Tirta', 8, 1, 0),
+(13, 'Usaha SPA', 5, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -97,6 +99,8 @@ INSERT INTO `input_type` (`type_id`, `type_name`, `input_value`) VALUES
 --
 
 CREATE TABLE `pemohon` (
+  `latest` tinyint(1) NOT NULL DEFAULT '1',
+  `id` int(11) NOT NULL,
   `nik` varchar(64) NOT NULL,
   `nama_pemohon` varchar(64) NOT NULL,
   `tempat_lahir` varchar(64) NOT NULL,
@@ -107,16 +111,98 @@ CREATE TABLE `pemohon` (
   `kota` varchar(64) NOT NULL,
   `kecamatan` varchar(64) NOT NULL,
   `desa` varchar(64) NOT NULL,
-  `jenis_kelamin` varchar(16) NOT NULL
+  `jenis_kelamin` varchar(16) NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `pemohon`
 --
 
-INSERT INTO `pemohon` (`nik`, `nama_pemohon`, `tempat_lahir`, `tanggal_lahir`, `kewarganegaraan`, `alamat`, `provinsi`, `kota`, `kecamatan`, `desa`, `jenis_kelamin`) VALUES
-('253466467566767', 'Muhammad Daniel', 'Palembang', '1986-03-31', 'Warga Negara Indonesia', 'Jalan Musi I, Blok V, No V87, Kelurahan Lorok Pakjo', '12', '12.02', '12.02.06', '12.02.06.2006', 'Laki-laki'),
-('43547657879980', 'Arjun', 'Palembang', '1997-02-11', 'Warga Negara Asing', 'Jalan Irigasi RT.02 RW.09 No.70 , Siring Agung Agung ', '16', '16.71', '16.71.04', '16.71.04.1001', 'Perempuan');
+INSERT INTO `pemohon` (`latest`, `id`, `nik`, `nama_pemohon`, `tempat_lahir`, `tanggal_lahir`, `kewarganegaraan`, `alamat`, `provinsi`, `kota`, `kecamatan`, `desa`, `jenis_kelamin`, `last_update`) VALUES
+(1, 1, '0650060106420001 ', 'IRSAN SONDHI ', 'palembang', '1942-06-01', 'Warga Negara Indonesia', 'JL. TALANG KERANGGA NO. 20 RT.032 RW.011 ', '16', '16.71', '16.71.01', '16.71.01.1003', 'Laki-laki', '2018-09-03 12:22:36'),
+(0, 2, '1610082806940001', 'Muhammad Daniel', 'Tanjung Sejaro', '1994-06-28', 'Warga Negara Indonesia', 'Jalan Musi 1, No V87, Kelurahan Lorok Pakjo, Kecamatan Ilir Barat 1, Palembang', '16', '16.71', '16.71.04', '16.71.04.1004', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 3, '1671010705770004 ', 'DENI GUSTIAWAN ', 'Palembang', '1977-05-07', 'Warga Negara Indonesia', 'JL. SEI TAWAR I NO. 20/725 RT. 022 RW. 009', '16', '16.71', '16.71.04', '16.71.04.1003', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 4, '1671020102650017', 'KHUSWARI ', 'Palembang', '1965-02-01', 'Warga Negara Indonesia', 'JL. BUNGARAN V NO. 116 RT. 010 RW. 003', '16', '16.71', '16.71.02', '16.71.02.1006', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 5, '1671020108560007', 'H. RUSDI HAR ', 'palembang', '1956-08-01', 'Warga Negara Indonesia', 'JL. SH. WARDOYO NO. 01/346 RT. 011 RW. 003 ', '16', '16.71', '16.71.02', '16.71.02.1006', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 6, '1671020505690011', 'AGUNG MUSLIM ', 'Palembang', '1969-05-05', 'Warga Negara Indonesia', 'JL. PENDIDIKAN PERUM. ALBARIA BLOK D NO. 004 RT. 028 RW. 018 ', '16', '16.71', '16.71.02', '16.71.02.1006', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 7, '1671026009860010 ', 'DWI SEPTARIA, SE. ', 'palembang', '1986-09-20', 'Warga Negara Indonesia', 'KOMPLEK ATLIT JAKABARAING PERUM. TOP NO.27 BLOK AI RT.062 RW.017', '16', '16.71', '16.71.17', '16.71.17.1003', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 8, '1671026205850008', 'SYAFITRI INDAH WURI ', 'Palembang', '1985-05-22', 'Warga Negara Indonesia', 'JL. BUNGARAN II NO. 245 RT. 006 RW. 002 ', '16', '16.71', '16.71.02', '16.71.02.1005', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 9, '1671030303720006 ', 'SARJURI ', 'Palembang', '1972-03-03', 'Warga Negara Indonesia', 'LR. TEMBUSAN II NO. 653 RT. 012 RW. 006', '16', '16.71', '16.71.03', '16.71.03.1006', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 10, '1671036408760002  ', 'LENNY AGUSMAYANTI, SE. ', 'Palembang', '1976-08-24', 'Warga Negara Indonesia', 'LR. PARAS JAYA II RT. 008 RW. 003', '16', '16.71', '16.71.03', '16.71.03.1005', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 11, '1671040509570011 ', 'LIUSFIANTO ', 'Palembang', '1957-09-05', 'Warga Negara Indonesia', 'JL. PUNCAK SEKUNING LR. AMAL BAKTI 109 RT. 005 RW. 002 ', '16', '16.71', '16.71.04', '16.71.04.1002', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 12, '1671040509590011', 'LIUS FIANTO ', 'Palembang', '1959-09-05', 'Warga Negara Indonesia', 'JL. PUNCAK SEKUNING LR. AMAL BAKTI 109 RT. 005 RW. 002 ', '16', '16.71', '16.71.04', '16.71.04.1002', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 13, '1671040909750007 ', 'FUDYANSUN KAMIN ', 'palembang', '1975-09-09', 'Warga Negara Indonesia', 'JL. ENGGANO NO. 623 RT. 008 RW. 002 ', '16', '16.71', '16.71.04', '16.71.04.1002', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 14, '167104100250006 ', 'H. SUBUH JABAR ', 'Palembang', '1950-02-10', 'Warga Negara Indonesia', ' JL. TRIKORA NO. 4720 RT. 013 RW. 003', '16', '16.71', '16.71.04', '16.71.04.1005', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 15, '1671041010510005 ', 'CHANDRA UMAR ', 'Palembang', '1951-10-10', 'Warga Negara Indonesia', 'KOMPLEK BUKIT SEJAHTERA BLOK N-5 RT. 067 RW. 021', '16', '16.71', '16.71.04', '16.71.04.1001', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 16, '1671041909710002 ', 'M. IQBAL ', 'Palembang', '1971-09-19', 'Warga Negara Indonesia', 'JL. NATUNA NO. 25 RT. 012 RW. 003', '16', '16.71', '16.71.04', '16.71.04.1002', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 17, '167104214620004 ', 'H. MUHAMMAD ZAINI, SH ', 'palembang', '1962-04-21', 'Warga Negara Indonesia', 'JL. SAMBU NO. 01-A RT. 001 RW. 001 ', '16', '16.71', '16.71.04', '16.71.04.1003', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 18, '1671042203740006', 'TIMBUL SINAGA, SE. ', 'Palembang', '1974-03-22', 'Warga Negara Indonesia', 'JL. KAPTEN A. RIVAI NO. 36 RT. 001 RW. 001', '16', '16.71', '16.71.11', '16.71.11.1004', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 19, '1671042405480003', 'DRS. H. ZAINU ALI, MPB ', 'Palembang', '1948-05-24', 'Warga Negara Indonesia', 'JL. LEMPUING BLOK M NO. 6 RT. 020 RW. 005 KELURAHAN DEMANG LEBAR DAUN KECAMATAN ILIR BARAT I PALEMBANG ', '16', '16.71', '16.71.04', '16.71.04.1005', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 20, '1671044202690011', 'HJ. IDA MERAWATI, SE. ', 'Palembang', '1969-02-22', 'Warga Negara Indonesia', 'JL. KANCIL PUTIH V NO.40 F RT.045 RW.010 KELURAHAN DEMANG LEBAR DAUN KECAMATAN ILIR BARAT I PALEMBANG ', '16', '16.71', '16.71.04', '16.71.04.1005', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 21, '1671050105480003 ', 'BUJUNG HAMDAN ', 'palembang', '1948-05-01', 'Warga Negara Indonesia', 'JL. DEMPO DALAM NO. 1007 RT. 019 RW. 004 ', '16', '16.71', '16.71.05', '16.71.05.1005', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 22, '1671050206820007', 'MARIANI', 'Palembang', '1982-06-02', 'Warga Negara Indonesia', 'JL. LETKOL ISKANDAR NO. 284 RT. 009 RW. 002', '16', '16.71', '16.71.05', '16.71.05.1001', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 23, '1671050206820007 ', 'M. ARIANSYAH PRATAMA ', 'Palembang', '1982-06-02', 'Warga Negara Indonesia', 'JL. DWIKORA I LR. KARYA II NO. 15 RT. 032 RW. 011', '16', '16.71', '16.71.05', '16.71.05.1010', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 24, '1671051509540003 ', 'ONG TJIE GIOK / RASYID KURNIAWAN ', 'Palembang', '1954-09-15', 'Warga Negara Indonesia', 'LR. RAMBAI RT. 004 RW. 002', '16', '16.71', '16.71.05', '16.71.05.1003', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 25, '1671052306560004 ', 'SUSANTO SALIM, LIM KOK PO ', 'Palembang', '1956-06-23', 'Warga Negara Indonesia', 'JL. DEMPO LUAR NO. 783/427-C RT. 014 RW. 003', '16', '16.71', '16.71.05', '16.71.05.1005', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 26, '1671052402690003 ', 'NYOMAN SAPUTRA NYOO ', 'Palembang', '1969-02-24', 'Warga Negara Indonesia', 'JL. PETANANG NO. 1224 RT. 017 RW. 005 ', '16', '16.71', '16.71.05', '16.71.05.1009', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 27, '1671052407780005 ', 'TONDY KARTONO ', 'Palembang', '1978-07-24', 'Warga Negara Indonesia', 'JL. TAMAN KENTEN KOMPLEK DUTA I KENTEN BLOK H-2 RT. 036 RW. 001 KELURAHAN DUKU KECAMATAN ILIR TIMUR II PALEMBANG ', '16', '16.71', '16.71.06', '16.71.06.1005', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 28, '1671052707640004 ', 'YULIUS KESUMA ', 'Palembang', '1964-07-27', 'Warga Negara Indonesia', 'JL. DEMPO DALAM NO. 1018 RT. 019 RW. 004', '16', '16.71', '16.71.05', '16.71.05.1005', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 29, '1671053009630003 ', 'IR. HARRIADI BENGGAWAN, MM ', 'palembang', '1963-09-30', 'Warga Negara Indonesia', 'JL. RENGAS NO. 1513-7135 RT. 021 RW. 005 ', '16', '16.71', '16.71.05', '16.71.05.1009', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 30, '1671055104740003 ', 'SOPHIA HELEN  ', 'Palembang', '1974-04-11', 'Warga Negara Indonesia', 'JL. PETANANG NO. 1225 RT. 017 RW. 005 ', '16', '16.71', '16.71.05', '16.71.05.1009', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 31, '1671055110650006', 'MEGAWATI TAMSIR ', 'Palembang', '1965-10-11', 'Warga Negara Indonesia', 'JL. VETERAN NO. 249-251 RT. 019 RW. 005 KELURAHAN 20 ILIR D-I KECAMATAN ILIR TIMUR I PALEMBANG ', '16', '16.71', '16.71.05', '16.71.05.1009', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 32, '1671055310570003 ', 'TAN JEN LING / JENTY MARLINDA', 'palembang', '1957-10-13', 'Warga Negara Indonesia', 'JL. VETERAN NO. 241 RT. 019 RW. 005 ', '16', '16.71', '16.71.05', '16.71.05.1009', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 33, '1671056508830002 ', 'RATNA DEWI HUSIN, SE. ', 'Palembang', '1983-08-25', 'Warga Negara Indonesia', 'JL. SERUNI PERUMAHAN DOSEN UNSRI 47 RT. 064 RW. 017', '16', '16.71', '16.71.04', '16.71.04.1001', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 34, '1671056606760010 ', 'NILA ANGGRAINI ', 'palembang', '1976-06-26', 'Warga Negara Indonesia', 'JL. KAPTEN ANWAR SASTRO NO.1423 RT.026 RW.009 ', '16', '16.71', '16.71.05', '16.71.05.1010', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 35, '1671060112920010', 'KMS. M. ANDREI UTAMA ', 'Palembang', '1992-12-01', 'Warga Negara Indonesia', 'JL. DR. M. ISA NO. 01 RT. 025 RW. 007', '16', '16.71', '16.71.06', '16.71.06.1005', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 36, '1671061006560015', 'EDY CHANDRA ', 'Palembang', '1956-12-10', 'Warga Negara Indonesia', 'JL. TAMAN KENTEN NO. 17 B RT. 045 RW. 010 KELURAHAN 8 ILIR KECAMATAN ILIR TIMUR II PALEMBANG ', '16', '16.71', '16.71.18', '16.71.18.1001', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 37, '1671061209600010 ', 'ROJALI ', 'Palembang', '1958-09-12', 'Warga Negara Indonesia', 'JL. SLAMET RIADY LR. KEMAS I GG. MAJAPAHIT NO. 1860 RT. 024 RW. 007', '16', '16.71', '16.71.06', '16.71.06.1005', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 38, '1671061603640007', 'HASRIAL NASUTION ', 'Palembang', '1964-03-16', 'Warga Negara Indonesia', 'JL. YAYASAN I NO. 24 RT. 020 RW. 006', '16', '16.71', '16.71.06', '16.71.06.1012', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 39, '1671062407700004 ', 'HASAN EFENDI ', 'Palembang', '1970-07-24', 'Warga Negara Indonesia', 'JL. BUKIT KENTEN NO. 73 RT. 001 RW. 001', '16', '16.71', '16.71.06', '16.71.06.1005', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 40, '1671063007670004 ', 'HENRY SALIM ', 'palembang', '1967-07-30', 'Warga Negara Indonesia', 'JL. GERSIK LR. BAYAM NO. 121 RT. 021 RW. 008 ', '16', '16.71', '16.71.18', '16.71.18.1002', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 41, '1671063113600111 ', 'DANIEL LIM ', 'Palembang', '1960-12-31', 'Warga Negara Indonesia', 'JL. R. SUKAMTO KOMP. PTC NO. G-46 RT. 017 ', '16', '16.71', '16.71.06', '16.71.06.1005', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 42, '1671066005530008 ', 'MERRY KRISNA ', 'palembang', '1953-05-20', 'Warga Negara Indonesia', 'JL. RAJAWALI NO. 26 RT. 022 RW. 005 ', '16', '16.71', '16.71.18', '16.71.18.1002', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 43, '1671070210860008', 'HANDRY ', 'Palembang', '1986-10-02', 'Warga Negara Indonesia', 'JL. SUAK PERMAI LR. GOTONG ROYONG RT. 039 RW. 008 KELURAHAN SUKAJAYA KECAMATAN SUKARAMI PALEMBANG ', '16', '16.71', '16.71.07', '16.71.07.1004', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 44, '1671071204690020', 'YUSHENDRY ', 'Palembang', '1969-04-12', 'Warga Negara Indonesia', 'JL. LETJEN. HARUN SOHAR NO. 2615 RT. 046 RW. 010', '16', '16.71', '16.71.07', '16.71.07.1007', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 45, '167107170882213 ', 'ANWAR BATARA ', 'Palembang', '1982-08-17', 'Warga Negara Indonesia', 'JL. NASKAH I KOMP. BAPINDO NO. A-9 RT. 008 RW. 003', '16', '16.71', '16.71.07', '16.71.07.1005', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 46, '1671071909660003 ', 'A. FIKRI ', 'palembang', '1966-09-19', 'Warga Negara Indonesia', 'JL. SOEKARNO-HATTA GG. BERSAMA NO. 2425 RT. 036 RW. 011 ', '16', '16.71', '16.71.15', '16.71.15.1004', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 47, '1671072701920004', 'THOMAS SURYAJAYA ', 'Palembang', '1992-01-27', 'Warga Negara Indonesia', 'JL. PERINDUSTRIAN II NO. 1270 RT. 012 RW. 001 ', '16', '16.71', '16.71.07', '16.71.07.1007', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 48, '1671094102590004 ', 'NURHAYATI', 'Palembang', '1959-02-01', 'Warga Negara Indonesia', 'JL. CAMBAI AGUNG I NO.1697 RT. 025 RW. 006 ', '16', '16.71', '16.71.09', '16.71.09.1004', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 49, '1671096705450002', 'NY. FARIDA HOESNI ', 'Palembang', '1945-05-27', 'Warga Negara Indonesia', 'JL. R. SOEKAMTO NO. 84 RT. 001 RW.001', '16', '16.71', '16.71.09', '16.71.09.1005', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 50, '1671100111570003 ', 'HENKIE KESUMA', 'palembang', '1957-11-01', 'Warga Negara Indonesia', 'JL. RESIDEN H. A. ROZAK NO. 117-022 RT. 002 RW. 001 ', '16', '16.71', '16.71.10', '16.71.10.1001', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 51, '1671102710490003', 'WINDRA AKSA ', 'Palembang', '1949-10-27', 'Warga Negara Indonesia', 'JL. MACAN II BLOK X NO.01 KEDAMAIAN PERMAI RT.007 RW.002 KELURAHAN BUKIT SANGKAL KECAMATAN KALIDONI PALEMBANG  ', '16', '16.71', '16.71.10', '16.71.10.1001', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 52, '167111140465005', 'BUDIONO', 'Palembang', '1965-04-14', 'Warga Negara Indonesia', 'JL. KARTINI RAYA NO. 008 A RT. 013 RW. 005', '31', '31.71', '31.71.02', '31.71.02.1001', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 53, '1671114310740004 ', 'LISA RIFAI ', 'palembang', '1974-10-03', 'Warga Negara Indonesia', 'JL. JEND. SUDIRMAN NO. 47-D RT. 010 RW. 003', '16', '16.71', '16.71.11', '16.71.11.1004', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 54, '1671115010430002 ', 'HJ. CHODIDJAH ASTRIDA  ', 'Palembang', '1940-10-10', 'Warga Negara Indonesia', 'JL. KAPTEN A. RIVAI NO. 127 RT. 029 RW. 009 ', '16', '16.71', '16.71.11', '16.71.11.1005', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 55, '1671115509600001', 'HJ. ZALEHA ', 'Palembang', '1960-09-15', 'Warga Negara Indonesia', 'JL. PANGERAN ARIA KESUMA ABDURROHIM NO. 847 RT. 020 RW. 007 KELURAHAN TALANG SEMUT KECAMATAN BUKIT KECIL PALEMBANG ', '16', '16.71', '16.71.11', '16.71.11.1006', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 56, '1671134401830007', 'VERONIKA USHA IMMERHEISER', 'Palembang', '1983-01-04', 'Warga Negara Indonesia', 'JL. MAYJEND YUSUF SINGADEKANE KM. 10 RT. 025 RW. 009', '16', '16.71', '16.71.13', '16.71.13.1003', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 57, '1671134502790002 ', 'FITRIANI ', 'Palembang', '1979-02-05', 'Warga Negara Indonesia', 'JL. KI MAROGAN RT. 016 RW. 004', '16', '16.71', '16.71.13', '16.71.13.1001', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 58, '1671142010610001', 'CORYANTO ', 'Palembang', '1958-10-20', 'Warga Negara Indonesia', 'JL. BERINGIN NO. .076 RT. 021 RW. 006', '16', '16.71', '16.71.14', '16.71.14.1005', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 59, '1671150912800001', 'H. TIAN KEDAUMPU YAMIN ', 'Palembang', '1980-12-09', 'Warga Negara Indonesia', 'JL. MAHMIL NO. 88 RT. 002 RW. 001 ', '16', '16.71', '16.71.15', '16.71.15.1002', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 60, '167151812550003', 'SANTOSO CHANDRA ', 'Palembang', '1955-12-18', 'Warga Negara Indonesia', 'JL. BANGAU NO. 12 RT. 029 RW. 008', '16', '16.71', '16.71.06', '16.71.06.1005', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 61, '253466467566767', 'Muhammad Daniel', 'Palembang', '1986-03-31', 'Warga Negara Indonesia', 'Jalan Musi I, Blok V, No V87, Kelurahan Lorok Pakjo', '12', '12.02', '12.02.06', '12.02.06.2006', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 62, '3172065909690004 ', 'NANCY NATALEO ', 'Palembang', '1969-09-19', 'Warga Negara Indonesia', 'KELURAHAN PEGANGSAAN DUA KECAMATAN KELAPA GADING KOTA JAKARTA UTARA ', '31', '31.72', '31.72.06', '31.72.06.1002', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 63, '3173072009550001 ', 'F. HERMAN CHONDRO, SE ', 'Palembang', '1955-09-20', 'Warga Negara Indonesia', 'JL. LETJEN S. PARMAN KAV. 22-24 RT. 001 RW. 004', '31', '31.73', '31.73.07', '31.73.07.1001', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 64, '3174070710580004 ', 'AMIR TJAHAJA ', 'Palembang', '1958-10-07', 'Warga Negara Indonesia', 'JL. WIJAYA XIV/11 RT.003 RW.003 ', '31', '31.74', '31.74.07', '31.74.07.1001', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 65, '3175030106790014 ', 'JUIS ABINDRA ', 'palembang', '1979-06-01', 'Warga Negara Indonesia', 'JL. CIPINANG JAYA HH NO. 23 RT. 002 RW. 008 ', '31', '31.75', '31.75.03', '31.75.03.1007', 'Laki-laki', '2018-09-03 12:22:36'),
+(1, 66, '3578184707650001 ', 'DRA. RATNA YULITA ', 'palembang', '1965-07-07', 'Warga Negara Indonesia', 'JL. KEMANG SELT. XII NO. 1 KOMP. BANGUN CIPTA SARANA RT. 005 RW. 001', '31', '31.74', '31.74.06', '31.74.06.1005', 'Perempuan', '2018-09-03 12:22:36'),
+(1, 67, '5271011808700003', 'AGUS ANDRIANTO', 'Palembang', '1970-08-18', 'Warga Negara Indonesia', 'JL. BINA KARYA NO. 18 RT. 010 RW. 003', '31', '31.75', '31.75.07', '31.75.07.1007', 'Laki-laki', '2018-09-03 12:22:36'),
+(0, 76, '1610082806940001', 'Muhammad Daniels', 'Tanjung Sejaro', '1994-06-28', 'Warga Negara Indonesia', 'Jalan Musi 1, No V87, Kelurahan Lorok Pakjo, Kecamatan Ilir Barat 1, Palembang', '16', '16.71', '', '16.71.04.1004', 'Laki-laki', '2018-09-03 12:22:36'),
+(0, 77, '1610082806940001', 'MUHAMMAD DANIEL', 'Tanjung Sejaro', '1994-06-28', 'Warga Negara Indonesia', 'Jalan Musi 1, No V87, Kelurahan Lorok Pakjo, Kecamatan Ilir Barat 1, Palembang', '16', '16.10', '16.10.08', '16.10.08.2011', 'Laki-laki', '2018-09-03 12:48:45'),
+(0, 78, '1610082806940001', 'Muhammad Daniel', 'Palembang', '1994-06-28', 'Warga Negara Indonesia', 'Jalan Musi 1, No V87, Kelurahan Lorok Pakjo, Kecamatan Ilir Barat 1, Palembang', '11', '11.02', '11.02.04', '11.02.04.2005', 'Laki-laki', '2018-09-05 06:24:34'),
+(0, 79, '1610082806940001', 'Muhammad Daniela', 'Palembang', '1994-06-28', 'Warga Negara Indonesia', 'Jalan Musi 1, No V87, Kelurahan Lorok Pakjo, Kecamatan Ilir Barat 1, Palembang', '11', '11.02', '', '11.02.04.2005', 'Laki-laki', '2018-09-05 06:24:49'),
+(1, 80, '1610082806940001', 'Muhammad Daniela', 'Palembang', '1994-06-28', 'Warga Negara Indonesia', 'Jalan Musi 1, No V87, Kelurahan Lorok Pakjo, Kecamatan Ilir Barat 1, Palembang', '11', '11.02', '', '11.02.04.2005', 'Laki-laki', '2018-09-05 06:24:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengajuan`
+--
+
+CREATE TABLE `pengajuan` (
+  `id` int(11) NOT NULL,
+  `id_pengajuan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -125,7 +211,9 @@ INSERT INTO `pemohon` (`nik`, `nama_pemohon`, `tempat_lahir`, `tanggal_lahir`, `
 --
 
 CREATE TABLE `perusahaan` (
-  `id_perusahaan` int(11) NOT NULL,
+  `latest` tinyint(1) DEFAULT '1',
+  `id` int(11) NOT NULL,
+  `id_perusahaan` varchar(255) DEFAULT NULL,
   `nik_pemohon` varchar(64) NOT NULL,
   `nama_perusahaan` varchar(64) NOT NULL,
   `merek_dagang` varchar(128) NOT NULL,
@@ -143,15 +231,37 @@ CREATE TABLE `perusahaan` (
   `nama_notaris_perubahan` varchar(64) NOT NULL,
   `nomor_akte_perubahan` varchar(64) NOT NULL,
   `tanggal_akte_perubahan` date NOT NULL,
-  `npwp` varchar(64) NOT NULL
+  `npwp` varchar(64) NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `perusahaan`
 --
 
-INSERT INTO `perusahaan` (`id_perusahaan`, `nik_pemohon`, `nama_perusahaan`, `merek_dagang`, `industri_pariwisata`, `sub_pariwisata`, `jenis_perusahaan`, `status_perusahaan`, `kegiatan_utama`, `alamat_perusahaan`, `kecamatan`, `desa`, `nama_notaris`, `nomor_akte`, `tanggal_akte`, `nama_notaris_perubahan`, `nomor_akte_perubahan`, `tanggal_akte_perubahan`, `npwp`) VALUES
-(6, '253466467566767', 'Vantech', 'Vantech cocoid', 'Usaha Penyelengaraan Jasa Perjalanan Pariwisata', '-', 'Perorangan', 'Pusat', 'Konsultan IT', 'Jalan Lintas', '16.71.02', '16.71.02.1005', 'Arjun SH', 'AAS123454HHJY', '2012-12-12', '-', '-', '2012-12-12', '143545898990');
+INSERT INTO `perusahaan` (`latest`, `id`, `id_perusahaan`, `nik_pemohon`, `nama_perusahaan`, `merek_dagang`, `industri_pariwisata`, `sub_pariwisata`, `jenis_perusahaan`, `status_perusahaan`, `kegiatan_utama`, `alamat_perusahaan`, `kecamatan`, `desa`, `nama_notaris`, `nomor_akte`, `tanggal_akte`, `nama_notaris_perubahan`, `nomor_akte_perubahan`, `tanggal_akte_perubahan`, `npwp`, `last_update`) VALUES
+(1, 1, '81671142010610001', '1671142010610001', 'LA COST', 'LA COST', 'Usaha Penyediaan Akomodasi', 'Kost', 'Perorangan', 'Pusat', 'Jasa Penginapan', 'JL. PANGERAN RATU PERUMN TOP 100 BLOK A1 NO. 002 RT. 062 RW. 007', '16.71.17', '16.71.17.1003', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '13456767', '2018-09-04 01:32:16'),
+(1, 2, '91671026205850008', '1671026205850008', 'PT. FIVE CONDOTEL PALEMBANG (FIVE KOST) ', 'PT. FIVE CONDOTEL PALEMBANG (FIVE KOST) ', 'Usaha Penyediaan Akomodasi', 'Tempat Kost', 'PT', 'Pusat', 'Jasa Penginapan', 'JL. CAMBAI AGUNG I RT. 025 RW. 016', '16.71.09', '16.71.09.1004', '-', '-', '0001-01-01', '-', '-', '0001-01-01', '0', '2018-09-04 01:32:16'),
+(1, 3, '101671061603640007', '1671061603640007', '121 KOST ', '121 KOST ', 'Usaha Penyediaan Akomodasi', 'Tempat Kost', 'Perorangan', 'Pusat', 'Jasa Penginapan', 'JL. PIPA REJA NO. 301 RT. 016 RW. 003 ', '16.71.18', '16.71.18.1001', '-', '-', '0001-01-01', '-', '-', '0001-01-01', '0', '2018-09-04 01:32:16'),
+(1, 4, '115271011808700003', '5271011808700003', 'KOSTAN AGUS ANDRIANTO ', 'KOSTAN AGUS ANDRIANTO ', 'Usaha Penyediaan Akomodasi', 'Tempat kost', 'Perorangan', 'Pusat', 'Jasa Penginapan', 'JL. R. SUKAMTO LRG. TEMBUSAN 19 RT. 042 RW. 005 ', '16.71.18', '16.71.18.1001', '-', '-', '0001-01-01', '-', '-', '0001-01-01', '0', '2018-09-04 01:32:16'),
+(1, 5, '121671020505690011', '1671020505690011', 'SEVEN NITE KOST  ', 'SEVEN NITE KOST  ', 'Usaha Penyediaan Akomodasi', 'Tempat Kost', 'Perorangan', 'Pusat', 'Jasa Penginapan', 'JL. MAYOR RUSLAN NO. 667 RT. 023 RW. 007 KELURAHAN 9 ILIR KECAMATAN ILIR TIMUR III ', '16.71.18', '16.71.18.1002', '-', '-', '0001-01-01', '-', '-', '0001-01-01', '0', '2018-09-04 01:32:16'),
+(1, 6, '131671060112920010', '1671060112920010', 'AL BAROQAH ', 'AL BAROQAH ', 'Usaha Penyediaan Akomodasi', 'Tempat Kost', 'Perorangan', 'Pusat', 'Jasa Penginapan', 'JL. DR. HAKIM NO. 1125 ', '16.71.05', '16.71.05.1010', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '0', '2018-09-04 01:32:16'),
+(1, 7, '141671134401830007', '1671134401830007', 'PT. MUTIARA ENDIKAT (SANTIKA PREMIERE BANDARA PALEMBANG) ', 'PT. MUTIARA ENDIKAT (SANTIKA PREMIERE BANDARA PALEMBANG) ', 'Usaha Penyediaan Akomodasi', 'Hotel Bintang 4', 'PT', 'Pusat', 'Jasa Penginapan', 'JL. GUBERNUR H. ASNAWI MANGKU ALAM NO. 168-169 RT. 015 RW. 004 ', '16.71.07', '16.71.07.1010', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '0', '2018-09-04 01:32:16'),
+(1, 8, '15167111140465005', '167111140465005', 'KOS- KOSAN PUTRI ', 'KOS- KOSAN PUTRI ', 'Usaha Penyediaan Akomodasi', 'Tempat Kost', 'Perorangan', 'Pusat', 'Jasa Penginapan', 'JL. ONGLEN LR. RS. TJEK YAN NO. 035 RT. 020 RW. 005 ', '16.71.05', '16.71.05.1009', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '0', '2018-09-04 01:32:16'),
+(1, 9, '161671072701920004', '1671072701920004', 'SETIA KOST ', 'SETIA KOST ', 'Usaha Penyediaan Akomodasi', 'Tempat Kost', 'Perorangan', 'Pusat', 'Jasa Penginapan', 'JL. BAMBANG UTOYO LR. SETIA RT. 017 ', '16.71.06', '16.71.06.1006', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '0', '2018-09-04 01:32:16'),
+(1, 10, '171671044202690011', '1671044202690011', 'KOST AL - A\'RAF  ', 'KOST AL - A\'RAF  ', 'Usaha Penyediaan Akomodasi', 'Tempat Kost', 'Perorangan', 'Pusat', 'Jasa Penginapan', 'JL. KANCIL PUTIH V NO.40 G RT.045 RW.010', '16.71.04', '16.71.04.1005', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '0', '2018-09-04 01:32:16'),
+(1, 11, '181671061006560015', '1671061006560015', 'PT. PERMATA INDAH SEJAHTERA (THE ZURI)  ', 'PT. PERMATA INDAH SEJAHTERA (THE ZURI)  ', 'Usaha Penyediaan Akomodasi', 'Hotel Bintang 4', 'PT', 'Pusat', 'Jasa Penginapan', 'JL. RADIAL (dh. JL. CEMPAKA DALAM) ', '16.71.11', '16.71.11.1004', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '0', '2018-09-04 01:32:16'),
+(1, 12, '191671070210860008', '1671070210860008', 'LESTARI  ', 'LESTARI  ', 'Usaha Penyediaan Akomodasi', 'Tempat Kost', 'Perorangan', 'Pusat', 'Jasa Penginapan', 'JL. R. SOEKAMTO LR. TEMBUSAN NO. 32 RT. 010 RW. 004 KELURAHAN 8 ILIR KECAMATAN ILIR TIMUR III ', '16.71.18', '16.71.18.1001', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '0', '2018-09-04 01:32:16'),
+(1, 13, '201671115509600001', '1671115509600001', 'PONDOK TAZA ', 'PONDOK TAZA ', 'Usaha Penyediaan Akomodasi', 'Tempat kost', 'Perorangan', 'Pusat', 'Jasa Penginapan', 'JL. PANGERAN ARIA KESUMA ABDURROHIM NO. 847 RT. 020 RW. 007 KELURAHAN TALANG SEMUT  ', '16.71.11', '16.71.11.1006', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '0', '2018-09-04 01:32:16'),
+(1, 14, '211671042405480003', '1671042405480003', 'HOTEL PERDANA ', 'HOTEL PERDANA ', 'Usaha Penyediaan Akomodasi', 'Hotel ', '', '', 'Jasa Penginapan', 'JL. MAKHMIL NO. 1 C RT. 002 RW. 001 ', '16.71.15', '16.71.15.1002', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '0', '2018-09-04 01:32:16'),
+(1, 15, '221671150912800001', '1671150912800001', 'GATHAN KOST ', 'GATHAN KOST ', 'Usaha Penyediaan Akomodasi', 'Tempat Kost', 'Perorangan', 'Pusat', 'Jasa Penginapan', 'JL. MACAN KUMBANG 9 NO. 82 RT. 039 RW. 011 KELURAHAN DEMANG LEBAR DAUN KECAMATAN ILIR BARAT I ', '16.71.04', '16.71.04.1005', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '0', '2018-09-04 01:32:16'),
+(1, 16, '231671040509590011', '1671040509590011', 'PENGINAPAN NEW BARI  ', 'PENGINAPAN NEW BARI  ', 'Usaha Penyediaan Akomodasi', 'Penginapan', 'Perorangan', 'Pusat', 'Jasa Penginapan', 'JL. PASAR 16 ILIR LR. KASIM RT. 002 RW. 001 KELURAHAN 16 ILIR KECAMATAN ILIR TIMUR I ', '16.71.05', '16.71.05.1002', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '0', '2018-09-04 01:32:16'),
+(1, 17, '241671102710490003', '1671102710490003', 'PT. WINER ABADI JAYA ', 'PT. WINER ABADI JAYA ', 'Usaha Penyediaan Akomodasi', 'Hotel', 'PT', '', 'Jasa Penginapan', 'JL. VETERAN LR. KARYAWAN NO.809 KELURAHAN KUTO BATU KECAMATAN ILIR TIMUR III ', '16.71.18', '16.71.18.1005', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '0', '2018-09-04 01:32:16'),
+(1, 18, '251671020108560007', '1671020108560007', 'HOTEL SURYA', 'HOTEL SURYA', 'Usaha Penyediaan Akomodasi', 'Hotel', 'Perorangan', 'Pusat', 'jasa penginapan', 'JL. SH. WARDOYO NO. 01 RT. 011 RW. 003 ', '16.71.02', '16.71.02.1006', '-', '-', '0000-00-00', '-', '-', '0000-00-00', '0', '2018-09-04 01:32:16'),
+(0, 21, '161008280694000118', '1610082806940001', 'SrivijayaTechic', 'Srivijaya', 'Usaha Daya Tarik Wisata', 'Jasa Penyedian Informasi Wisata', 'PT', 'Pusat', 'Penyediaan Informasi WIsata', 'Palembang', '16.71.04', '16.71.04.1002', 'Arjun SH', 'AAS123454HHJY', '2018-09-05', '-', '-', '2018-09-05', '1', '2018-09-05 06:19:15'),
+(0, 22, '161008280694000118', '1610082806940001', 'SrivijayaTechicS', 'Srivijaya', 'Usaha Daya Tarik Wisata', 'Jasa Penyedian Informasi Wisata', 'PT', 'Pusat', 'Penyediaan Informasi WIsata', 'Palembang', '16.71.04', '16.71.04.1002', 'Arjun SH', 'AAS123454HHJY', '2018-09-05', '-', '-', '2018-09-05', '1', '2018-09-05 06:19:25'),
+(0, 23, '161008280694000118', '1610082806940001', 'SrivijayaTechica', 'Srivijaya', 'Usaha Daya Tarik Wisata', 'Jasa Penyedian Informasi Wisata', 'PT', 'Pusat', 'Penyediaan Informasi WIsata', 'Palembang', '16.71.04', '16.71.04.1002', 'Arjun SH', 'AAS123454HHJY', '2018-09-05', '-', '-', '2018-09-05', '1', '2018-09-05 06:25:20'),
+(1, 24, '161008280694000118', '1610082806940001', 'SrivijayaTechica', 'Srivijaya', 'Usaha Daya Tarik Wisata', 'Jasa Penyedian Informasi Wisata', 'PT', 'Pusat', 'Penyediaan Informasi WIsata', 'Palembang', '16.71.04', '16.71.04.1002', 'Arjun SH', 'AAS123454HHJY', '2018-09-05', '-', '-', '2018-09-05', '1', '2018-09-05 06:25:20');
 
 -- --------------------------------------------------------
 
@@ -211,6 +321,16 @@ INSERT INTO `subform` (`form_id`, `subform_id`, `subform_name`, `variable_count`
 (11, 46, 'Tenaga Kerja', 3),
 (11, 47, 'Rencana Penyelesaian Pembangunan', 3),
 (11, 48, 'Tanah', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usaha_penyedian_jasa makanan_dan_minuman`
+--
+
+CREATE TABLE `usaha_penyedian_jasa makanan_dan_minuman` (
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -91545,13 +91665,19 @@ ALTER TABLE `input_type`
 -- Indexes for table `pemohon`
 --
 ALTER TABLE `pemohon`
-  ADD PRIMARY KEY (`nik`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pengajuan`
+--
+ALTER TABLE `pengajuan`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
-  ADD PRIMARY KEY (`id_perusahaan`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `radio_button`
@@ -91564,6 +91690,12 @@ ALTER TABLE `radio_button`
 --
 ALTER TABLE `subform`
   ADD PRIMARY KEY (`subform_id`);
+
+--
+-- Indexes for table `usaha_penyedian_jasa makanan_dan_minuman`
+--
+ALTER TABLE `usaha_penyedian_jasa makanan_dan_minuman`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -91600,16 +91732,28 @@ ALTER TABLE `input_type`
   MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `pemohon`
+--
+ALTER TABLE `pemohon`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+
+--
 -- AUTO_INCREMENT for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
-  MODIFY `id_perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `subform`
 --
 ALTER TABLE `subform`
   MODIFY `subform_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT for table `usaha_penyedian_jasa makanan_dan_minuman`
+--
+ALTER TABLE `usaha_penyedian_jasa makanan_dan_minuman`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `variable`
